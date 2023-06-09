@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: "mysql-db"
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: tododb
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db-data:/var/lib/mysql
+
+  redis:
+    container_name: "redis-service"
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis-data:/data
+
+volumes:
+  db-data:
+  redis-data:
