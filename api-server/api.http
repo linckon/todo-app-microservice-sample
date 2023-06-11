@@ -3,7 +3,7 @@ POST http://localhost:5001/create
 Content-Type: application/json
 
 {
-  "name": "task four",
+  "name": "task one",
   "status":"pending"
 }
 
@@ -13,3 +13,7 @@ GET http://localhost:5001/
 
 ### test connection
 GET http://localhost:5001/data
+
+###
+
+DELETE http://localhost:5001/delete/5

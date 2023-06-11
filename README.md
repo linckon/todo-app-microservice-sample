@@ -34,6 +34,7 @@ To run the Todo app locally, please follow these steps:
     DB_NAME=your_mysql_database_name
     REDIS_HOST=your_redis_host
     REDIS_PORT=your_redis_port
+
 5. Start the client and server applications.
 
 ```bash

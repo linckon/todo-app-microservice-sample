@@ -5,17 +5,22 @@ import mysql from "mysql2/promise";
 
 dotenv.config();
 
-//const redisUrl = createClient({ url: 'redis://localhost:6379' });
+
 
 const sqlTable = 'tasks';
 
 const dbConfig = {
-    host: 'localhost',
+    host: 'db',
     user: 'root',
     password: 'password',
     database: 'tododb'
   };
-  
+
+  // redis
+// const redisHost = process.env.REDIS_HOST || "localhost";
+// const redisPort = process.env.REDIS_PORT || "6379";
+// const redisChannel = process.env.REDIS_CHANNEL || "taskChannel";
+// const redisUrl = `redis://${redisHost}:${redisPort}`;
   // helper fn for DB
   const createData = async (data) => {
     const obj = JSON.parse(data);
@@ -26,7 +31,7 @@ const dbConfig = {
   };
 
   (function () {
-    const subscriber = createClient({ url: 'redis://localhost:6379' });
+    const subscriber = createClient({ url: 'redis://redis:6379' });
     subscriber.connect();
   
     // redis status logger
