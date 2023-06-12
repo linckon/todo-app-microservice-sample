@@ -109,6 +109,10 @@ DELETE http://localhost:5001/delete/5
 ```
 
 # Data Flow
+
+![todo-app-architecture-diagram](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/f47efced-bd56-4282-8779-6b68432c7bae)
+ <p align="center">Dataflow Diagram</p> 
+ 
 1. The user creates a new task by making a POST request to /tasks endpoint with the task details.
 2. The Express server receives the request and publishes the task details to the Redis server.
 3. The worker server, which is constantly listening to the Redis server, picks up the task details and processes them.
