@@ -1,4 +1,4 @@
-### create a new task
+### Creates a new task and publishes it to the Redis server
 POST http://localhost:5001/create
 Content-Type: application/json
 
@@ -7,13 +7,9 @@ Content-Type: application/json
   "status":"pending"
 }
 
-###
 
-GET http://localhost:5001/
-
-### test connection
+### get all tasks
 GET http://localhost:5001/data
 
-###
-
+### delete task by given id
 DELETE http://localhost:5001/delete/5

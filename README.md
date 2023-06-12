@@ -88,8 +88,25 @@ The Todo app is built using the following technologies and components:
 # API Endpoints
 The Express API provides the following endpoints:
 
-- POST /tasks: Creates a new task and publishes it to the Redis server. 
-- GET /tasks: Retrieves all tasks from the MySQL database.
+```bash
+
+### Creates a new task and publishes it to the Redis server
+POST http://localhost:5001/create
+Content-Type: application/json
+
+{
+  "name": "task one",
+  "status":"pending"
+}
+
+
+### get all tasks
+GET http://localhost:5001/data
+
+### delete task by given id
+DELETE http://localhost:5001/delete/5
+
+```
 
 # Data Flow
 1. The user creates a new task by making a POST request to /tasks endpoint with the task details.
