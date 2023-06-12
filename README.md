@@ -5,46 +5,28 @@ This is a Todo app built using React, Express, MySQL, and Redis. It allows users
 To run the Todo app locally, please follow these steps:
 
 ## Prerequisites
-- Node.js and npm installed on your machine
-- MySQL and Redis servers set up and running
+- Docker and Docker Compose installed and running on your machine
 
 ## Steps
 1. Clone this repository to your local machine.
+```bash
+    git clone https://github.com/linckon/todo-app-microservice-sample.git
+```
 2. Navigate to the project directory.
 
 ```bash
-    cd todo-app
+    cd todo-app-microservice-architecture
 ```
-3. Install the dependencies for both the client and server.
+3. Follow the .env file for login MySql and Redis container
+
+4. Run
 
 ```bash
-    cd client
-    npm install
-
-    cd ../server
-    npm install
+    docker-compose up -d
 ```
-4. Configure the server environment variables.
-- Create a .env file in the server directory.
-- Provide the necessary environment variables in the file:
+5. To initiate table for the first time run below command
 
-    DB_HOST=your_mysql_host
-    DB_USER=your_mysql_user
-    DB_PASSWORD=your_mysql_password
-    DB_NAME=your_mysql_database_name
-    REDIS_HOST=your_redis_host
-    REDIS_PORT=your_redis_port
-
-5. Start the client and server applications.
-
-```bash
-    cd client
-    npm start
-
-    cd ../server
-    npm start
-```
-6. Access the Todo app in your browser at http://localhost:3000.
+6. Access the Todo app in your browser at http://localhost:8080.
 
 ## Architecture
 The Todo app is built using the following technologies and components:
