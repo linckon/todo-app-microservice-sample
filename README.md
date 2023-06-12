@@ -26,6 +26,54 @@ To run the Todo app locally, please follow these steps:
 ```
 5. To initiate table for the first time run below command
 
+```bash
+$ docker exec -it mysql-db bash
+bash-4.4# mysql -u root -ppassword
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> create database tododb;
+Query OK, 1 row affected (0.03 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| tododb             |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use tododb;
+Database changed
+mysql> create table tasks (id int not null auto_increment,name text,status text,primary key (id));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_tododb |
++------------------+
+| tasks            |
++------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into tasks (name,status) values ('learn networking','pending');
+Query OK, 1 row affected (0.02 sec)
+
+```
+
 6. Access the Todo app in your browser at http://localhost:8080.
 
 ## Architecture
