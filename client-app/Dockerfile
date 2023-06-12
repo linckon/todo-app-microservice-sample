@@ -1,0 +1,57 @@
+# # Stage 1: Build the React app
+# FROM node:14 as build-stage
+
+# WORKDIR /app
+
+# COPY package.json package-lock.json ./
+# RUN npm install
+
+# COPY . .
+# RUN npm run build
+
+# # Stage 2: Serve the built React app
+# FROM nginx:1.21
+
+# COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# EXPOSE 80
+
+# CMD ["nginx", "-g", "daemon off;"]
+
+# Multi-stage build pipeline
+
+# STAGE 1: Building assets using Node image
+# Using nodejs image as starting point
+FROM node:16 AS builder
+# Setting working directory
+WORKDIR /app
+
+# Copying package.json and yarn.lock and installing node modules
+# This helps caching the modules
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
+
+# Copying rest of the file in image's working directory
+COPY . .
+
+
+# Building the assets
+RUN npm run build
+
+# STAGE 2: Using nginx to serve the built assets
+# Using nginx as a starting point
+FROM nginx:alpine
+# Setting up working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/dist .
+
+ EXPOSE 8080
+# ENV PORT 3000
+
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+
