@@ -5,22 +5,22 @@ This is a Todo app built using React, Express, MySQL, and Redis. It allows users
 # UI Screenshots
 
  - Add task
-
+![add_task](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/2df66ca8-cc8d-4114-8f39-13f1164b5431)
 
  - Publish to redis pub/sub channel - taskChannel & subscriber Subscribed
-
+![subscriber_channel](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/fd6313b3-8740-4fba-b5e0-a63509617372)
 
  - Worker server subsrcribed & saved into db
-
+![add_to_db_through_worker_service](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/4234d125-c6ee-42aa-ab9e-04661d138e84)
 
  - For the first time cache is empty, the data will retreve from db & cached
-
+![task_list](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/50488bdd-03b3-4d70-a1b5-a2431a7595f7)
 
  - After clicking Refresh button data will retrieve from cache
- 
+ ![cached_task_list](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/edd7b71f-038a-4842-a50d-1ae6397672d5)
 
  - After deleting cache will be empty & data retrieve from db
-
+![after_delete](https://github.com/linckon/todo-app-microservice-sample/assets/12873582/0949434b-8ba8-4cca-a8f8-5d805a99067a)
 
 
 ## Installation
