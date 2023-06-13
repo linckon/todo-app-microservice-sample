@@ -1,6 +1,28 @@
 # Todo App
 This is a Todo app built using React, Express, MySQL, and Redis. It allows users to create and manage their tasks. The app follows a specific flow where a user creates a POST request to the Express API, which publishes the message to a Redis server. A worker server is responsible for processing the data and saving it to a MySQL database. Additionally, the app implements caching, where the first time a user retrieves data, it comes from the database, and subsequent requests fetch the data from the Redis cache.
 
+
+# UI Screenshots
+
+ - Add task
+
+
+ - Publish to redis pub/sub channel - taskChannel & subscriber Subscribed
+
+
+ - Worker server subsrcribed & saved into db
+
+
+ - For the first time cache is empty, the data will retreve from db & cached
+
+
+ - After clicking Refresh button data will retrieve from cache
+ 
+
+ - After deleting cache will be empty & data retrieve from db
+
+
+
 ## Installation
 To run the Todo app locally, please follow these steps:
 
